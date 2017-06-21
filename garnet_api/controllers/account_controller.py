@@ -45,9 +45,10 @@ def update_account_password(user_id):
         pass_data = request.get_json()
         user_service = UserService(user_id)
         usr = user_service.get_user()
-        if usr.update_password(pass_data['password']):
-            app.logger.info('Updated password for user_id: %s', user_id)
-            return SuccessResponse('Success', 'Password updated successfully', 'EMAIL_OK').as_json(), 200
+        if user_id == current_identity.id:
+            if usr.update_password(pass_data['password']):
+                app.logger.info('Updated password for user_id: %s', user_id)
+                return SuccessResponse('Success', 'Password updated successfully', 'EMAIL_OK').as_json(), 200
     except:
         app.logger.error('Invalid json received for user: %s', user_id)
         return ErrorResponse('Could not update password', 'Invalid password provided').as_json()
@@ -81,7 +82,6 @@ def update_account_email(user_id):
 def post_account():
     user_data = request.get_json()
     if user_data:
-        print(user_data)
         user = User(
             user_id=str(uuid.uuid4()),
             name=user_data['name'],
