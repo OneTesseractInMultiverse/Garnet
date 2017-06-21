@@ -33,5 +33,48 @@ requests without the need of enabling CORS.
 ![alt text](https://img.shields.io/badge/JWT-Ready-blue.svg "garnet")
 
 ---
+## Prerequisites
+
+- Python 3.6.1
+- Pip 9.0.1
+- MongoDB 3.4.5
+- Virtualenv (optional)
+
 ## Installation
+
+
+
+Clone the repository in your local system:
+
+````shell
+$ git clone https://github.com/OneTesseractInMultiverse/Garnet.git
+````
+
+Install dependencies:
+````shell
+$ cd Garnet
+$ pip install -r requirements.txt
+````
+
+Configure settings in **config.py** and setup your parameters such as validity of the
+JWT tokens, connection parameters for MongoDB and logging. 
+
+Run the application:
+
+````
+$ python run.py
+````
+
+Verify the application is running in your browser by navigating to:
+
+````
+http://127.0.0.1:8080
+````
+
+## Using Garnet
+
+### Register a new user
+
+
+
 

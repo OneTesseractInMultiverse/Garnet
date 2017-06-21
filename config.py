@@ -9,7 +9,7 @@ MAIL_FROM_EMAIL = "info@gernet-api.org"
 # Its also used by extensions like Flask-Bcrypt. You should
 # define this in your instance folder to keep it out of version
 # control.
-SECRET_KEY = '!(q5W&V9zQ?jF<'  # Change for production
+SECRET_KEY = 'change_this_please'  # Change for production
 #
 # Configuration for the Flask-Bcrypt extension
 BCRYPT_LEVEL = 12
@@ -18,7 +18,7 @@ BCRYPT_LEVEL = 12
 # JWT CONFIGURATIONS
 # ----------------------------------------------------------------
 JWT_AUTH_URL_RULE = '/api/v1/auth'
-JWT_EXPIRATION_DELTA = datetime.timedelta(3200)
+JWT_EXPIRATION_DELTA = datetime.timedelta(3200) # Set the token validity
 #
 # ----------------------------------------------------------------
 # SATELLITE DATABASE CONFIGURATION
