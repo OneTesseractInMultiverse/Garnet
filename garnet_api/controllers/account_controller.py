@@ -31,7 +31,7 @@ def get_account_by_id(user_id):
     identity = find_user(user_id)
     if identity:
         return identity.as_json()
-    return ErrorResponse('User not found', 'The provided user_id is not valid').as_json(), 404
+    return ErrorResponse('User not found', 'The provided user_id is not valid').as_json()
 
 
 # --------------------------------------------------------------------------
@@ -48,7 +48,10 @@ def update_account_password(user_id):
         if user_id == current_identity.id:
             if usr.update_password(pass_data['password']):
                 app.logger.info('Updated password for user_id: %s', user_id)
-                return SuccessResponse('Success', 'Password updated successfully', 'EMAIL_OK').as_json(), 200
+                return SuccessResponse('Success', 'Password updated successfully', 'EMAIL_OK').as_json()
+        else:
+            app.logger.error('Permission violation. User not authorized to update other user\'s password. User performing operation %s', user_id)
+            return ErrorResponse('Permission violation', 'This action generated a security alert').as_json()
     except:
         app.logger.error('Invalid json received for user: %s', user_id)
         return ErrorResponse('Could not update password', 'Invalid password provided').as_json()
@@ -67,10 +70,10 @@ def update_account_email(user_id):
         user = user_service.get_user()
         if user.update_email(email_data['email']):
             app.logger.info('Updated email for user_id: %s', user_id)
-            return SuccessResponse('Success', 'Email updated successfully', 'EMAIL_OK').as_json(), 200
+            return SuccessResponse('Success', 'Email updated successfully', 'EMAIL_OK').as_json()
     except:
         app.logger.error('Invalid json received for user: %s', user_id)
-        return ErrorResponse('Could not update email', 'Invalid email provided').as_json(), 400
+        return ErrorResponse('Could not update email', 'Invalid email provided').as_json()
 
 
 # --------------------------------------------------------------------------
@@ -93,5 +96,5 @@ def post_account():
         user.update_password(user_data['password'])
         user.save(validate=True)
         app.logger.info('User %s was created', user.user_id)
-        return SuccessResponse(user.user_id, 'User created successfully', 'n/a').as_json(), 201
-    return ErrorResponse('Error processing request', 'The provided data is not valid').as_json(), 400
+        return SuccessResponse(user.user_id, 'User created successfully', 'n/a').as_json()
+    return ErrorResponse('Error processing request', 'The provided data is not valid').as_json()
