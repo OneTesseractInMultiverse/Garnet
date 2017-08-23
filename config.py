@@ -21,8 +21,12 @@ JWT_AUTH_URL_RULE = '/api/v1/auth'
 JWT_EXPIRATION_DELTA = datetime.timedelta(3200) # Set the token validity
 #
 # ----------------------------------------------------------------
-# SATELLITE DATABASE CONFIGURATION
 # ----------------------------------------------------------------
-# See https://flask-pymongo.readthedocs.io/en/latest/ for more
+# MONGO DATABASE CONFIGURATION
+# ----------------------------------------------------------------
 # MongoDB configuration parameters
-MONGO_DBNAME = 'garnet_api'
+MONGODB_DB = 'your_db_name'
+MONGODB_HOST = 'your_db_host'
+MONGODB_PORT = 0000 #port here
+MONGODB_USERNAME = 'your_user'
+MONGODB_PASSWORD = 'your_password'
