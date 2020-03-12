@@ -15,7 +15,7 @@ lxml==3.8.0
 MarkupSafe==1.0
 mongoengine==0.13.0
 Naked==0.1.31
-psutil==5.2.2
+psutil==5.6.6
 PyJWT==1.4.2
 pymongo==3.4.0
 PyYAML==3.12
