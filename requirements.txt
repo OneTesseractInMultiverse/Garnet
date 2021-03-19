@@ -10,7 +10,7 @@ Flask-PyMongo==0.5.1
 Flask-WTF==0.14.2
 idna==2.5
 itsdangerous==0.24
-Jinja2==2.9.6
+Jinja2==2.11.3
 lxml==3.8.0
 MarkupSafe==1.0
 mongoengine==0.13.0
