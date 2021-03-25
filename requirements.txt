@@ -18,7 +18,7 @@ Naked==0.1.31
 psutil==5.2.2
 PyJWT==1.4.2
 pymongo==3.4.0
-PyYAML==3.12
+PyYAML==5.4
 requests==2.18.1
 shellescape==3.4.1
 six==1.10.0
