@@ -11,7 +11,7 @@ Flask-WTF==0.14.2
 idna==2.5
 itsdangerous==0.24
 Jinja2==2.9.6
-lxml==3.8.0
+lxml==4.6.5
 MarkupSafe==1.0
 mongoengine==0.13.0
 Naked==0.1.31
